@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelozAir - Logística del Futuro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE COLOR (Según tus imágenes) --- */
+        :root {
+            --bg-dark: #1a1a1a;       /* Negro/Gris oscuro fondo */
+            --bg-nav: #2a2a2a;        /* Gris oscuro navegación */
+            --primary-blue: #2a7fb8;  /* Azul claro (VelozAir) */
+            --accent-cyan: #00D9C0;   /* Verde turquesa/Cyan (Acentos) */
+            --text-grey: #5a6b8a;     /* Gris texto secundario */
+            --white: #ffffff;
+        }
+
+        /* --- RESET Y BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4; /* Fondo general suave */
+            color: var(--bg-dark);
+        }
+
+        /* --- HEADER (Estilo Imagen 1) --- */
+        header {
+            background-color: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .logo-container img {
+            max-height: 80px; /* Ajuste para la imagen 3.jpg */
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Botón de pago estilo Imagen 1 */
+        .btn-pay {
+            background-color: #002e5f; /* Azul oscuro corporativo similar a referencia */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-pay:hover {
+            background-color: var(--primary-blue);
+        }
+
+        /* Círculo PSE */
+        .pse-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f0f0f0; /* Fondo si no carga imagen */
+            overflow: hidden;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: var(--bg-dark);
+            font-size: 10px;
+        }
+        
+        /* Si tuvieras el logo PSE en imagen, se vería aquí. 
+           Por ahora simulamos el círculo de la referencia */
+        .pse-circle span {
+            display: block;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        nav {
+            background-color: var(--bg-dark); /* Fondo oscuro acorde a VelozAir */
+            padding: 0 5%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-cyan); /* Hover en Cyan */
+            border-bottom: 3px solid var(--accent-cyan);
+        }
+
+        /* --- BANNER PRINCIPAL --- */
+        .banner-section {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .banner-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- SECCIÓN CONTENIDO (Estilo Imagen 4 - Agofer: Acero a la mano) --- */
+        .content-section {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 60px 5%;
+            background-color: var(--white);
+            position: relative;
+            align-items: center;
+        }
+
+        .text-column {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+
+        /* Título Azul */
+        .text-column h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Las comillas grandes (Estilo Imagen 4 pero en Cyan) */
+        .quote-icon {
+            font-size: 4rem;
+            color: var(--accent-cyan); /* Color de acento solicitado */
+            line-height: 1;
+            font-family: serif;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .text-column p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .text-column strong {
+            color: var(--bg-dark);
+            font-weight: 700;
+        }
+
+        .btn-know-more {
+            display: inline-block;
+            background-color: var(--bg-dark); /* Botón negro */
+            color: var(--white);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-know-more:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 127, 184, 0.4);
+        }
+
+        /* La imagen/tarjeta flotante de la derecha */
+        .image-column {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Simulación de la tarjeta superpuesta de Agofer */
+        .floating-card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 15px;
+            max-width: 450px;
+            width: 100%;
+            /* Si quieres el efecto de overlap negativo hacia arriba como en la ref: */
+            /* margin-top: -80px; */ 
+        }
+
+        .floating-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px; /* Suavizar bordes */
+        }
+
+        .floating-banner-text {
+            background-color: var(--bg-dark);
+            color: var(--accent-cyan);
+            text-align: center;
+            padding: 15px;
+            margin-top: -5px; /* Pegado a la imagen */
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            border-bottom: 4px solid var(--primary-blue);
+        }
+
+        /* --- FOOTER SIMPLIFICADO --- */
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-grey);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .content-section {
+                flex-direction: column;
+            }
+            .text-column {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="3.jpg" alt="VelozAir Logo"> 
+        </div>
+        <div class="header-right">
+            <a href="#" class="btn-pay">Pague aquí sus envíos</a>
+            
+            <div class="pse-circle">
+                <span>PSE</span> 
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Sostenibilidad</a></li>
+            <li><a href="#">Contáctenos</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Políticas</a></li>
+            <li><a href="#">PQR´S</a></li>
+        </ul>
+    </nav>
+
+    <section class="banner-section">
+        <img src="banner.jpeg" alt="Banner VelozAir Drones">
+    </section>
+
+    <section class="content-section">
+        <div class="text-column">
+            <h1>VelozAir: el tráfico ya no es excusa</h1>
+            
+            <span class="quote-icon">“</span>
+            
+            <p>
+                <strong>VelozAir es mucho más que un servicio de entregas;</strong> es la materialización de la logística del futuro en el presente. 
+                Significa poner a tu servicio nuestra flota autónoma, nuestra tecnología de punta y nuestra red de cobertura para llegar donde otros no pueden.
+            </p>
+            <p>
+                Nuestra especialidad son las <strong>entregas ultrarrápidas</strong>, desafiando los límites de la velocidad y la accesibilidad en entornos urbanos complejos.
+            </p>
+
+            <span class="quote-icon" style="transform: rotate(180deg); display:inline-block;">“</span>
+            <br><br>
+
+            <a href="#" class="btn-know-more">Conocer más</a>
+        </div>
+
+        <div class="image-column">
+            <div class="floating-card">
+                <img src="2.jpg" alt="Drones VelozAir">
+                <div class="floating-banner-text">
+                    ENTREGAS ULTRARRÁPIDAS
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VelozAir. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
