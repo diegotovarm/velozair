@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- VARIABLES DE COLOR (Según tus imágenes) --- */
+        /* --- VARIABLES DE COLOR --- */
         :root {
-            --bg-dark: #1a1a1a;       /* Negro/Gris oscuro fondo */
+            --bg-dark: #1a1a1a;       /* Negro/Gris oscuro */
             --bg-nav: #2a2a2a;        /* Gris oscuro navegación */
             --primary-blue: #2a7fb8;  /* Azul claro (VelozAir) */
-            --accent-cyan: #00D9C0;   /* Verde turquesa/Cyan (Acentos) */
+            --accent-cyan: #00D9C0;   /* Verde turquesa/Cyan */
             --text-grey: #5a6b8a;     /* Gris texto secundario */
             --white: #ffffff;
         }
@@ -26,14 +26,14 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4; /* Fondo general suave */
+            background-color: #f4f4f4;
             color: var(--bg-dark);
         }
 
-        /* --- HEADER (Estilo Imagen 1) --- */
+        /* --- HEADER --- */
         header {
             background-color: var(--white);
-            padding: 15px 5%;
+            padding: 10px 5%; /* Padding reducido un poco */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,7 +41,7 @@
         }
 
         .logo-container img {
-            max-height: 80px; /* Ajuste para la imagen 3.jpg */
+            max-height: 90px; /* Ajustado para el nuevo Logo.png */
         }
 
         .header-right {
@@ -50,75 +50,64 @@
             gap: 15px;
         }
 
-        /* Botón de pago estilo Imagen 1 */
+        /* Botón de pago */
         .btn-pay {
-            background-color: #002e5f; /* Azul oscuro corporativo similar a referencia */
+            background-color: #002e5f;
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             transition: background 0.3s;
+            border-radius: 4px;
         }
 
         .btn-pay:hover {
             background-color: var(--primary-blue);
         }
 
-        /* Círculo PSE */
-        .pse-circle {
+        /* Imagen PSE */
+        .pse-img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: #f0f0f0; /* Fondo si no carga imagen */
-            overflow: hidden;
-            border: 1px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            color: var(--bg-dark);
-            font-size: 10px;
-        }
-        
-        /* Si tuvieras el logo PSE en imagen, se vería aquí. 
-           Por ahora simulamos el círculo de la referencia */
-        .pse-circle span {
-            display: block;
+            object-fit: cover; /* Asegura que no se deforme */
+            border: 1px solid #ddd;
         }
 
-        /* --- BARRA DE NAVEGACIÓN --- */
+        /* --- BARRA DE NAVEGACIÓN (CORRECCIÓN 1: Más compacta) --- */
         nav {
-            background-color: var(--bg-dark); /* Fondo oscuro acorde a VelozAir */
-            padding: 0 5%;
+            background-color: var(--bg-dark);
+            padding: 0; /* Quitamos padding contenedor */
+            border-bottom: 4px solid var(--accent-cyan); /* Detalle estético */
         }
 
         nav ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-        }
-
-        nav ul li {
-            position: relative;
+            justify-content: center; /* Centramos los elementos */
+            gap: 5px; /* Espacio reducido entre items */
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         nav ul li a {
             display: block;
-            padding: 15px 20px;
+            padding: 12px 15px; /* Padding reducido para acercar palabras */
             color: var(--white);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--accent-cyan); /* Hover en Cyan */
-            border-bottom: 3px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            background-color: rgba(255,255,255,0.05);
         }
 
-        /* --- BANNER PRINCIPAL --- */
+        /* --- BANNER --- */
         .banner-section {
             width: 100%;
             height: auto;
@@ -129,17 +118,15 @@
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
         }
 
-        /* --- SECCIÓN CONTENIDO (Estilo Imagen 4 - Agofer: Acero a la mano) --- */
+        /* --- SECCIÓN CONTENIDO --- */
         .content-section {
             display: flex;
             flex-wrap: wrap;
             padding: 60px 5%;
             background-color: var(--white);
-            position: relative;
-            align-items: center;
+            align-items: center; /* Centrado vertical */
         }
 
         .text-column {
@@ -148,18 +135,17 @@
             padding-right: 40px;
         }
 
-        /* Título Azul */
         .text-column h1 {
             color: var(--primary-blue);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
-        /* Las comillas grandes (Estilo Imagen 4 pero en Cyan) */
         .quote-icon {
             font-size: 4rem;
-            color: var(--accent-cyan); /* Color de acento solicitado */
+            color: var(--accent-cyan);
             line-height: 1;
             font-family: serif;
             display: block;
@@ -167,10 +153,10 @@
         }
 
         .text-column p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
             color: #444;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: justify;
         }
 
@@ -181,73 +167,75 @@
 
         .btn-know-more {
             display: inline-block;
-            background-color: var(--bg-dark); /* Botón negro */
+            background-color: var(--bg-dark);
             color: var(--white);
             padding: 15px 35px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1rem;
             transition: all 0.3s ease;
+            margin-top: 10px;
         }
 
         .btn-know-more:hover {
             background-color: var(--primary-blue);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(42, 127, 184, 0.4);
         }
 
-        /* La imagen/tarjeta flotante de la derecha */
+        /* --- TARJETA FLOTANTE (CORRECCIÓN 4) --- */
         .image-column {
             flex: 1;
             min-width: 300px;
-            position: relative;
             display: flex;
             justify-content: center;
         }
 
-        /* Simulación de la tarjeta superpuesta de Agofer */
         .floating-card {
             background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            padding: 15px;
-            max-width: 450px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            padding: 10px;
+            max-width: 400px; /* Ancho controlado para que se vea elegante */
             width: 100%;
-            /* Si quieres el efecto de overlap negativo hacia arriba como en la ref: */
-            /* margin-top: -80px; */ 
+            text-align: center;
+            border-radius: 8px;
         }
 
+        /* Imagen 'recibido.png' */
         .floating-card img {
             width: 100%;
             height: auto;
-            border-radius: 5px; /* Suavizar bordes */
+            border-radius: 5px;
+            display: block;
         }
 
+        /* Título debajo de la imagen */
         .floating-banner-text {
             background-color: var(--bg-dark);
             color: var(--accent-cyan);
             text-align: center;
-            padding: 15px;
-            margin-top: -5px; /* Pegado a la imagen */
+            padding: 15px 10px;
+            margin-top: 5px; 
             font-weight: 800;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
             border-bottom: 4px solid var(--primary-blue);
         }
 
-        /* --- FOOTER SIMPLIFICADO --- */
+        /* --- FOOTER --- */
         footer {
             background-color: var(--bg-dark);
             color: var(--text-grey);
             text-align: center;
             padding: 20px;
             margin-top: 50px;
+            font-size: 0.8rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
             .content-section {
                 flex-direction: column;
@@ -256,6 +244,10 @@
                 padding-right: 0;
                 margin-bottom: 40px;
             }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -263,14 +255,11 @@
 
     <header>
         <div class="logo-container">
-            <img src="3.jpg" alt="VelozAir Logo"> 
+            <img src="Logo.png" alt="VelozAir Logo"> 
         </div>
         <div class="header-right">
             <a href="#" class="btn-pay">Pague aquí sus envíos</a>
-            
-            <div class="pse-circle">
-                <span>PSE</span> 
-            </div>
+            <img src="PSE.jpg" alt="Pagos PSE" class="pse-img">
         </div>
     </header>
 
@@ -312,7 +301,8 @@
 
         <div class="image-column">
             <div class="floating-card">
-                <img src="2.jpg" alt="Drones VelozAir">
+                <img src="recibido.png" alt="Entrega Exitosa VelozAir">
+                
                 <div class="floating-banner-text">
                     ENTREGAS ULTRARRÁPIDAS
                 </div>
