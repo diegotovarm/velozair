@@ -7,22 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- VARIABLES DE COLOR --- */
+        /* --- VARIABLES --- */
         :root {
-            --bg-dark: #1a1a1a;       /* Negro/Gris oscuro */
-            --bg-nav: #2a2a2a;        /* Gris oscuro navegación */
-            --primary-blue: #2a7fb8;  /* Azul claro (VelozAir) */
-            --accent-cyan: #00D9C0;   /* Verde turquesa/Cyan */
-            --text-grey: #5a6b8a;     /* Gris texto secundario */
+            --bg-dark: #1a1a1a;
+            --primary-blue: #2a7fb8;
+            --accent-cyan: #00D9C0;
             --white: #ffffff;
+            --text-grey: #5a6b8a;
         }
 
-        /* --- RESET Y BASE --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -33,15 +28,18 @@
         /* --- HEADER --- */
         header {
             background-color: var(--white);
-            padding: 10px 5%; /* Padding reducido un poco */
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--primary-blue);
         }
 
+        /* AJUSTE 1: LOGO CON MEDIDAS EXACTAS */
         .logo-container img {
-            max-height: 90px; /* Ajustado para el nuevo Logo.png */
+            width: 219.6px;
+            height: 118.75px;
+            object-fit: contain; /* Asegura que la imagen no se deforme */
         }
 
         .header-right {
@@ -50,51 +48,68 @@
             gap: 15px;
         }
 
-        /* Botón de pago */
+        /* AJUSTE 1: BOTÓN PAGO CON MEDIDAS EXACTAS */
         .btn-pay {
+            width: 193.63px;
+            height: 44px;
             background-color: #002e5f;
             color: white;
-            padding: 10px 20px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
+            font-size: 0.85rem; /* Ajusté un poco la fuente para que quepa bien */
             border-radius: 4px;
+            transition: background 0.3s;
+            /* Centrado del texto dentro de las dimensiones fijas */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .btn-pay:hover {
             background-color: var(--primary-blue);
         }
 
-        /* Imagen PSE */
+        /* AJUSTE 1: PSE CON MEDIDAS EXACTAS */
         .pse-img {
-            width: 50px;
-            height: 50px;
+            width: 87.79px;
+            height: 87.79px;
             border-radius: 50%;
-            object-fit: cover; /* Asegura que no se deforme */
+            object-fit: cover;
             border: 1px solid #ddd;
         }
 
-        /* --- BARRA DE NAVEGACIÓN (CORRECCIÓN 1: Más compacta) --- */
+        /* --- NAVEGACIÓN --- */
         nav {
             background-color: var(--bg-dark);
-            padding: 0; /* Quitamos padding contenedor */
-            border-bottom: 4px solid var(--accent-cyan); /* Detalle estético */
+            border-bottom: 4px solid var(--accent-cyan);
+            position: relative; /* Necesario para el menú móvil */
+        }
+
+        /* Botón de las 3 rayitas (Oculto en PC) */
+        .menu-toggle {
+            display: none; /* Se oculta en pantallas grandes */
+            font-size: 2rem;
+            color: var(--white);
+            padding: 10px 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Centramos los elementos */
-            gap: 5px; /* Espacio reducido entre items */
+            justify-content: center;
+            gap: 5px;
             max-width: 1200px;
             margin: 0 auto;
+            transition: max-height 0.3s ease-out; /* Animación suave */
         }
 
         nav ul li a {
             display: block;
-            padding: 12px 15px; /* Padding reducido para acercar palabras */
+            padding: 12px 15px;
             color: var(--white);
             text-decoration: none;
             font-size: 0.9rem;
@@ -108,25 +123,19 @@
         }
 
         /* --- BANNER --- */
-        .banner-section {
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-        }
-
         .banner-section img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* --- SECCIÓN CONTENIDO --- */
+        /* --- CONTENIDO --- */
         .content-section {
             display: flex;
             flex-wrap: wrap;
             padding: 60px 5%;
             background-color: var(--white);
-            align-items: center; /* Centrado vertical */
+            align-items: center;
         }
 
         .text-column {
@@ -146,10 +155,10 @@
         .quote-icon {
             font-size: 4rem;
             color: var(--accent-cyan);
-            line-height: 1;
             font-family: serif;
             display: block;
             margin-bottom: 10px;
+            line-height: 1;
         }
 
         .text-column p {
@@ -160,11 +169,6 @@
             text-align: justify;
         }
 
-        .text-column strong {
-            color: var(--bg-dark);
-            font-weight: 700;
-        }
-
         .btn-know-more {
             display: inline-block;
             background-color: var(--bg-dark);
@@ -172,17 +176,13 @@
             padding: 15px 35px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1rem;
             transition: all 0.3s ease;
             margin-top: 10px;
         }
-
         .btn-know-more:hover {
             background-color: var(--primary-blue);
-            transform: translateY(-2px);
         }
 
-        /* --- TARJETA FLOTANTE (CORRECCIÓN 4) --- */
         .image-column {
             flex: 1;
             min-width: 300px;
@@ -194,13 +194,12 @@
             background: white;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             padding: 10px;
-            max-width: 400px; /* Ancho controlado para que se vea elegante */
+            max-width: 400px;
             width: 100%;
-            text-align: center;
             border-radius: 8px;
+            text-align: center;
         }
 
-        /* Imagen 'recibido.png' */
         .floating-card img {
             width: 100%;
             height: auto;
@@ -208,13 +207,11 @@
             display: block;
         }
 
-        /* Título debajo de la imagen */
         .floating-banner-text {
             background-color: var(--bg-dark);
             color: var(--accent-cyan);
-            text-align: center;
             padding: 15px 10px;
-            margin-top: 5px; 
+            margin-top: 5px;
             font-weight: 800;
             text-transform: uppercase;
             font-size: 1.1rem;
@@ -222,7 +219,6 @@
             border-bottom: 4px solid var(--primary-blue);
         }
 
-        /* --- FOOTER --- */
         footer {
             background-color: var(--bg-dark);
             color: var(--text-grey);
@@ -232,21 +228,50 @@
             font-size: 0.8rem;
         }
 
+        /* --- RESPONSIVE (MÓVIL) --- */
+        /* AJUSTE 2: MENÚ DE 3 RAYITAS */
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
+                flex-direction: column; /* Elementos del header uno debajo del otro */
                 gap: 15px;
+                padding-bottom: 20px;
             }
+
+            /* Mostrar el botón hamburguesa */
+            .menu-toggle {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            /* Ocultar el menú por defecto */
+            nav ul {
+                display: none; /* Oculto */
+                flex-direction: column; /* Lista vertical */
+                width: 100%;
+                background-color: var(--bg-dark);
+            }
+
+            /* Clase que añadiremos con JS para mostrar el menú */
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                border-top: 1px solid #333;
+                width: 100%;
+            }
+
+            nav ul li a {
+                padding: 15px 20px;
+            }
+
             .content-section {
                 flex-direction: column;
             }
             .text-column {
                 padding-right: 0;
                 margin-bottom: 40px;
-            }
-            nav ul {
-                flex-direction: column;
-                align-items: center;
             }
         }
     </style>
@@ -264,7 +289,10 @@
     </header>
 
     <nav>
-        <ul>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            &#9776; </button>
+
+        <ul id="navbar-list">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Productos</a></li>
             <li><a href="#">Sostenibilidad</a></li>
@@ -302,7 +330,6 @@
         <div class="image-column">
             <div class="floating-card">
                 <img src="recibido.png" alt="Entrega Exitosa VelozAir">
-                
                 <div class="floating-banner-text">
                     ENTREGAS ULTRARRÁPIDAS
                 </div>
@@ -313,6 +340,13 @@
     <footer>
         <p>&copy; 2026 VelozAir. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("navbar-list");
+            menu.classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>
